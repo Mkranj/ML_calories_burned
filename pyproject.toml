@@ -9,3 +9,11 @@ dependencies = [
     "scikit-learn>=1.7.2",
     "seaborn>=0.13.2",
 ]
+
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
