@@ -23,3 +23,21 @@ def transform_init_data(init_data: pd.DataFrame):
     # To be fair, these IDs are much higher than those observed in generated so this isn't a real risk.
     transformed_data["id"] = "in" + transformed_data["id"].astype(str)
     return transformed_data
+
+def dichotomise_sex(data: pd.DataFrame):
+    '''
+    Transform the Sex column into a binary variable, with "female" being assigned to 1.
+
+    Args:
+        data: df to transform
+
+    Returns: 
+        pd.DataFrame : df with the Sex column recoded
+    '''
+    transformed = data
+
+    transformed["Sex"] = (transformed["Sex"] 
+        .map({"male" : 0, "female" : 1})
+        )
+
+    return transformed
